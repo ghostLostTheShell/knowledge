@@ -1,0 +1,19 @@
+# \u5b57\u7b26\u8f6c\u6362
+
+## python
+
+### utf-8 \u5b57\u7b26\u8f6c\u7f16\u7801
+
+``` python
+# 1.
+'\u5b57'.encode('unicode_escape')
+# 2
+hex(ord('\u5b57'))
+
+```
+
+## bash
+
+``` bash
+printf `\u`
+```

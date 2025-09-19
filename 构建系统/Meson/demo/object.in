@@ -1,0 +1,4 @@
+{
+  "name": "@application_name@",
+  "env": "@env@"
+}

@@ -1,0 +1,7 @@
+{
+  "python.pythonPath": "G:\\Program Files\\Python\\python.exe",
+  "python.languageServer": "Pylance",
+  "files.associations": {
+    "stdio.h": "c"
+  }
+}

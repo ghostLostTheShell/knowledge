@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/sda2/mypoject/knowledge'
+make: Leaving directory '/mnt/sda2/mypoject/knowledge'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

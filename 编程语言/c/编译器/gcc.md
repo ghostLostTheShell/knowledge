@@ -1,0 +1,1 @@
+参考文档 https://gcc.gnu.org/onlinedocs/gcc-4.6.2/gcc/C-Extensions.html#C-Extensions

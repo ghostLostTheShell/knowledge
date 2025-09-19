@@ -1,0 +1,12 @@
+{
+  "Internal_Field_Seprator":{
+    "desc":[
+      "内部域分隔符,shell 根据 IFS 的值处理\"命令替换\"和\"参数替换\"时."
+    ],
+    "addre":["IFS"]
+  },
+  "newline":{
+    "desc":["新行"],
+    "addre":["nl"]
+  }
+}

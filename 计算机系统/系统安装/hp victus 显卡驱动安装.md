@@ -1,0 +1,1 @@
+# Ubuntu 20 Nvidia驱动安装(run方式)

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff; 
+}
+
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+button {
+  --blue: #0000ff; /** 局部变量**/
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+</style>
+
+<style id="xx2">
+    :root {
+      --blue: #030300;
+      --white: #db0f0f; 
+    }
+</style>
+</head>
+<body>
+
+<h1>用局部变量覆盖全局变量</h1>
+
+<div class="container">
+  <h2>Welcome to Shanghai!</h2>
+  <p>Shanghai is one of the four direct-administered municipalities of the People's Republic of China.</p>
+  <p>Shanghai is one of the four direct-administered municipalities of the People's Republic of China.</p>
+  <p>
+    <button>Yes</button>
+    <button>No</button>
+  </p>
+</div>
+
+</body>
+<script>
+  var r = document.querySelector(':root'); // 
+
+  var rs = getComputedStyle(r); //获取css对象
+
+  rs.getPropertyValue('--blue')// 获取变量的值
+
+  r.style.setProperty('--blue', 'lightblue')// 设置值
+  debugger
+</script>
+</html>

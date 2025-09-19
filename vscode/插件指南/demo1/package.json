@@ -1,0 +1,17 @@
+{
+	"activationEvents": [
+		"onCommand:extension.sayHello"
+	],
+	"main": "./src/extension",
+  "author": {
+    "name": "陈俊杰"
+  },
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.sayHello",
+				"title": "Hello World"
+			}
+		]
+	}
+}

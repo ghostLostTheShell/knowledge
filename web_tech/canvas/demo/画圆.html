@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type"  content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="MobileOptimized" content="320"/>
+<title>多色圆环进度</title>
+</head>
+<body>
+    <div onresize="cess('procanvas',40,52,52)">
+        <canvas  id="procanvas" class="procanvas" value="100%"></canvas><!--value代表红色-->
+    </div>
+    
+<script>
+    function process(canvasid,op,stylewidth,styleheight){
+            console.log('画')
+            var canvas = document.getElementById(canvasid);
+            var canvasvalue = canvas.getAttribute("value");
+            var process = canvasvalue.substring(0, canvasvalue.length-1);
+            var oProcess = op;
+            var context = canvas.getContext('2d');
+            var scale = window.devicePixelRatio;
+            var center = [stylewidth/2*scale,styleheight/2*scale];
+            canvas.style.width = stylewidth + "px";
+            canvas.style.height = styleheight + "px";
+            canvas.width = stylewidth*scale;
+            canvas.height = styleheight*scale;
+            
+         //开始画一个灰色的圆
+            context.beginPath();
+            context.moveTo(center[0], center[1]);
+            context.arc(center[0], center[1], center[0], 0, Math.PI * 2, false);
+            context.closePath();
+            context.fillStyle = '#e6e5e5';
+            context.fill();
+            
+            // 画进度(红色)
+            if(process != 0 && process != 100){
+                context.beginPath();
+                context.moveTo(center[0], center[1]);
+                if(process <25){
+                    context.arc(center[0], center[1], center[0], Math.PI*1.5, Math.PI*(1.5+0.5*(process/25)), false);//设置圆弧的起始于终止点
+                }
+                else{
+                    context.arc(center[0], center[1], center[0], Math.PI*1.5, Math.PI*2* ((process / 100)-0.25), false);//设置圆弧的起始于终止点
+                }
+                context.closePath();
+                context.fillStyle = '#db3030';
+                context.fill();
+            }
+            else if(process == 100){
+                context.beginPath();
+                context.moveTo(center[0], center[1]);
+                context.arc(center[0], center[1], center[0], 0, Math.PI*2, false);//设置圆弧的起始于终止点
+                context.closePath();
+                context.fillStyle = '#db3030';
+                context.fill();
+            }
+
+            //画进度(橙色)
+            if(oProcess != 0 && oProcess !=100){
+                context.beginPath();
+                context.moveTo(center[0], center[1]);
+                context.arc(center[0], center[1], center[0], Math.PI*1.5,Math.PI*1.5-(oProcess/25)*Math.PI*0.5, true);//设置圆弧的起始于终止点
+                context.closePath();
+                context.fillStyle = '#fb7d32';
+                context.fill();
+                //Math.PI*1.5-((oProcess+25)/100*Math.PI)
+            }
+            else if(oProcess == 100){
+                context.beginPath();
+                context.moveTo(center[0], center[1]);
+                context.arc(center[0], center[1], center[0], 0,Math.PI*2, true);//设置圆弧的起始于终止点
+                context.closePath();
+                context.fillStyle = '#fb7d32';
+                context.fill();
+            }
+
+            // 画内部空白
+            context.beginPath();
+            context.moveTo(center[0], center[1]);
+            context.arc(center[0], center[1], 21*scale, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fillStyle = 'rgba(255,255,255,1)';
+            context.fill();
+}
+    
+process("procanvas",40,52,52);//10是橙色
+</script>
+</body>
+</html>

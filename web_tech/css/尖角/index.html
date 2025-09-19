@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+    #p1 a {
+      dispaly: inline-block;
+      position: relative;
+      background: #ccc;
+      color: green;
+      line-height: 1em;
+      margin: 0 10px;
+      padding: 3px;
+    }
+
+    #p1 a:before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border: transparent 0.5em solid;
+      border-right-color: #ccc;
+      top: 0;
+      left: -1.4em
+    }
+  </style>
+
+  <style>
+    #circle {
+      width: 100px;
+      height: 100px;
+      background-color: #cb18f8;
+      border-radius: 80px;
+      /* 图形的半径 */
+    }
+  </style>
+  <style>
+    #circle {
+      width: 100px;
+      height: 100px;
+      background-color: #cb18f8;
+      border-radius: 80px;
+      /* 图形的半径 */
+    }
+  </style>
+  <style>
+
+    #triangle1 {
+        width: 0px;
+        height: 0px;
+        border-top: 100px solid aqua;
+        border-right: 100px solid #760000;
+        border-bottom: 100px solid blue;
+        border-left: 100px solid darkkhaki;
+        /* 图形的半径 */
+    }
+
+    #triangle2 {
+      width: 0px;
+      height: 0px;
+      border-top: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 100px solid blue;
+      border-left: 100px solid transparent;
+      border-radius: 300px;
+      /* 图形的半径 */
+  }
+
+  </style>
+
+</head>
+
+<body>
+  <div>
+    <p id="p1">
+      <a>Tag1</a>
+      <a>Tag2</a>
+      <a>Tag3</a>
+      <a>Tag4</a>
+    </p>
+  </div>
+
+  <p >实心圆</p>
+  <div id="circle">
+
+  </div>
+
+  <p> 三角形</p>
+  <div id="triangle1">
+
+  </div>
+  <div id="triangle2">
+
+  </div>
+  <div id="triangle3">
+
+  </div>
+  <div id="triangle4">
+
+  </div>
+
+  <p> 内凹角效果 </p>
+  <style>
+    .box {    
+      outline: solid 2px;    
+      max-width: 15em;
+      min-height: 10em;
+   }
+  </style>
+  <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+# 删掉 Start Menu\Programs 中的目录 Visual Studio Code 文件夹

@@ -1,0 +1,10 @@
+option(
+  'env',
+  type: 'combo',
+  choices: [
+    'dev',
+    'prod',
+    '测试'
+  ],
+  value: 'dev'
+)

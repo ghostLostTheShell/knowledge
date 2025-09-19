@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    .demo-div{
+      background-color: brown;
+      padding: 10px;
+      width: 500px;
+      height: 500px;
+      margin: 10px;
+    }
+  </style>
+  <script>
+
+  </script>
+</head>
+<body onresize="draow()">
+  
+  <div class="demo-div">
+    <canvas  id="canvas-demo-1">
+    </canvas>
+  </div>
+
+  <div class="demo-div">
+    <canvas  id="canvas-demo-1">
+    </canvas>
+  </div>
+
+</body>
+<script>
+  window.onresize = function(){
+    draow()
+ }
+
+function draow(){
+    
+    var scale = window.devicePixelRatio;
+    let canvas_demo_1 = document.getElementById("canvas-demo-1");
+  
+    var context = canvas_demo_1.getContext('2d');
+
+    canvas_demo_1.width = 400 * scale;
+    canvas_demo_1.height = 400 * scale;
+    canvas_demo_1.style.width = canvas_demo_1.width + 'px';
+    canvas_demo_1.style.height = canvas_demo_1.height + 'px';
+
+    console.log(`dpr:${scale}`)
+    console.log(`宽:${canvas_demo_1.width}，高度 y:${canvas_demo_1.height}`)
+
+    context.beginPath();
+    //context.moveTo(300/2, 300/2);
+    context.arc(canvas_demo_1.width/2, canvas_demo_1.width/2, canvas_demo_1.width/2, 0, 8, false);
+    context.closePath();
+    context.fillStyle = '#e6e5e5';
+    context.fill();
+  }
+
+  function
+  
+  draow()
+
+</script>
+</html>

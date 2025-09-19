@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://blog.csdn.net/weixin_42036952/article/details/88564647 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>.login-box{position: fixed;display: none;left: 50%;top: 50%;z-index: 10000;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background-color: #fff;}.login-mark{position: fixed;top: 0;left: 0;z-index: 9999;background-color: rgba(0, 0, 0, 0.5);width: 100%;height: 100%;display: none;}</style>
+    <link rel="canonical" href="http://blog.csdn.net/weixin_42036952/article/details/88564647">
+    
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="report" content="{&quot;pid&quot;: &quot;blog&quot;, &quot;spm&quot;:&quot;1001.2101&quot;}">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" media="handheld" href="https://blog.csdn.net/weixin_42036952/article/details/88564647#">
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <meta name="applicable-device" content="pc">
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客</title>
+        <meta name="keywords" content="Spring Boot 系列：处理跨域请求">
+        <meta name="csdn-baidu-search" content="{&quot;autorun&quot;:true,&quot;install&quot;:true,&quot;keyword&quot;:&quot;Spring Boot 系列：处理跨域请求&quot;}">
+    
+    
+        <link rel="stylesheet" type="text/css" href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/detail_enter-80c86aefd9.min.css">
+    
+        <link rel="stylesheet" type="text/css" href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/skin-shirtblue-b2ba816980.min.css">
+    <script src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/jquery-1.9.1.min.js.下载" type="text/javascript"></script>
+    <script type="text/javascript">
+        var isCorporate = false;//注释删除enterprise
+        var username =  "weixin_42036952";
+        var skinImg = "white";
+        var blog_address = "https://blog.csdn.net/weixin_42036952";
+        var currentUserName = "";
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=http://blog.csdn.net/weixin_42036952/article/details/88564647";
+        var blogUrl = "https://blog.csdn.net/";
+        var avatar = "https://profile.csdnimg.cn/E/6/6/3_weixin_42036952";
+        var articleTitle = "Spring Boot 系列：处理跨域请求";
+        var articleDesc = "一、何为跨域前端请求于后端处理符合三个要求（同一域名，同一端口，同一协议）下，即可访问，有一个不符合就会出现跨域问题。1.1 一次正常的请求Controller层代码：@RequestMapping(&amp;amp;amp;amp;quot;/demo&amp;amp;amp;amp;quot;)@RestControllerpublic class CorsTestController {    @GetMapping(&amp;amp;amp;amp;quot;/sayHello&amp;amp;amp;amp;";
+        var articleTitles = "Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客";
+        var nickName = "风尘博客";
+        var articleDetailUrl = "https://blog.csdn.net/weixin_42036952/article/details/88564647";
+        var skinStatus = "White";
+        var blogStaticHost = "https://csdnimg.cn/release/blogv2/"
+    </script>
+    <script src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/saved_resource" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+    
+<script type="text/javascript" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/baidu_opensug-1.0.1.js.下载"></script><style type="text/css">pre{position: relative}pre:hover .hljs-button{display: block}.hljs-button{display: none;position: absolute;right: 4px;top: 4px;font-size: 12px;color: #4d4d4d;background-color: white;padding: 2px 8px;margin: 8px;border-radius: 4px;cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05);}.hljs-button:after{content: attr(data-title)}code .hljs-button{margin: 2px 8px;}</style><style type="text/css">.hljs-ln{border-collapse:collapse}            .hljs-ln td{padding:0}            .hljs-ln-n{text-align: right;padding-right: 8px;}            .hljs-ln-n:before{content:attr(data-line-number)}</style><style type="text/css">.leftPop{width:330px;position: fixed;font-size: 12px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);padding:16px 40px 16px 16px;z-index: 100;}.leftPop .leftPop-close{position: absolute;right: 20px;fill:#70B8F0;cursor: pointer;}</style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css"></style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="nodata " style="">
+    
+    
+    
+
+
+<div class="main_father clearfix d-flex justify-content-center" style="height:100%;"> 
+    <div class="container clearfix" id="mainBox">
+        <main>
+<script type="text/javascript">
+    var blogSensitiveWords = "";
+</script>
+<div class="blog-content-box">
+    <div class="article-header-box">
+        <div class="article-header">
+            <div class="article-title-box">
+                <h1 class="title-article" id="articleContentId">Spring Boot 系列：处理跨域请求</h1>
+            </div>
+            <div class="article-info-box">
+                <div class="article-bar-top">
+                    <img class="article-type-img" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/original.png" alt="">
+                    <div class="bar-content">
+                    <a class="follow-nickName" href="https://me.csdn.net/weixin_42036952" target="_blank" rel="noopener">风尘博客</a>
+                    <span class="time">2019-03-15 00:17:03</span>
+                    <img class="article-read-img article-heard-img" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/articleReadEyes.png" alt="">
+                    <span class="read-count">25687</span>
+                    <a id="blog_detail_zk_collection" class="un-collection" data-report-click="{&quot;mod&quot;:&quot;popu_823&quot;,&quot;spm&quot;:&quot;1001.2101.3001.4232&quot;,&quot;ab&quot;:&quot;new&quot;}">
+                        <img class="article-collect-img article-heard-img un-collect-status" style="display:inline-block" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/tobarCollect.png" alt="">
+                        <img class="article-collect-img article-heard-img collect-status" style="display:none" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/tobarCollectionActive.png" alt="">
+                        <span class="name">收藏</span>
+                        <span class="get-collection">
+                            49
+                        </span>
+                    </a>
+                    </div>
+                </div>
+                <div class="blog-tags-box">
+                    <div class="tags-box artic-tag-box">
+                            <span class="label">分类专栏：</span>
+                                <a class="tag-link" href="https://blog.csdn.net/weixin_42036952/category_9294464.html" target="_blank" rel="noopener">Spring Boot</a>
+                            <span class="label">文章标签：</span>
+                                <a data-report-click="{&quot;mod&quot;:&quot;popu_626&quot;,&quot;spm&quot;:&quot;1001.2101.3001.4223&quot;,&quot;strategy&quot;:&quot;跨域&quot;,&quot;ab&quot;:&quot;new&quot;}" class="tag-link" href="https://www.csdn.net/gather_21/MtTaEg0sMDUwNTItYmxvZwO0O0OO0O0O.html" target="_blank" rel="noopener">跨域</a>
+                                <a data-report-click="{&quot;mod&quot;:&quot;popu_626&quot;,&quot;spm&quot;:&quot;1001.2101.3001.4223&quot;,&quot;strategy&quot;:&quot;spring boot&quot;,&quot;ab&quot;:&quot;new&quot;}" class="tag-link" href="https://so.csdn.net/so/search/s.do?q=spring%20boot&amp;t=blog&amp;o=vip&amp;s=&amp;l=&amp;f=&amp;viparticle=" target="_blank" rel="noopener">spring boot</a>
+                    </div>
+                </div>
+                <div class="up-time"><span>最后发布:2019-03-15 00:17:03</span><span>首次发布:2019-03-15 00:17:03</span></div>
+                <div class="slide-content-box">
+                    <div class="article-copyright">
+                        <div class="creativecommons">
+                            版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。
+                        </div>
+                        <div class="article-source-link">
+                            本文链接：<a href="http://blog.csdn.net/weixin_42036952/article/details/88564647" target="_blank">http://blog.csdn.net/weixin_42036952/article/details/88564647</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="operating">
+                    <a class="href-article-edit slide-toggle">版权</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <article class="baidu_pl">
+        <div id="article_content" class="article_content clearfix">
+        <link rel="stylesheet" href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/ck_htmledit_views-0dfae4df86.css">
+                <div id="content_views" class="markdown_views prism-atom-one-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                    </svg>
+                    <h2><a name="t0"></a><a name="t0"></a><a id="_1"></a>一、跨域背景</h2> 
+<h3><a name="t1"></a><a name="t1"></a><a id="11__3"></a>1.1 何为跨域？</h3> 
+<p><code>Url</code>的一般格式：</p> 
+<p><code>协议 + 域名（子域名 + 主域名） + 端口号 + 资源地址</code></p> 
+<p>示例：</p> 
+<p><code>https://www.dustyblog.cn:8080/say/Hello</code> 是由</p> 
+<p><code>https</code> + <code>www</code> + <code>dustyblog.cn</code> + <code>8080</code> + <code>say/Hello</code><br> 组成。</p> 
+<blockquote> 
+ <p>只要协议，子域名，主域名，端口号这四项组成部分中有一项不同，就可以认为是不同的域，不同的域之间互相访问资源，就被称之为跨域。</p> 
+</blockquote> 
+<h3><a name="t2"></a><a name="t2"></a><a id="12__18"></a>1.2 一次正常的请求</h3> 
+<ul><li><code>Controller</code>层代码：</li></ul> 
+<pre class="prettyprint"><code class="prism language-java has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/demo"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CorsTestController</span> <span class="token punctuation">{<!-- --></span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/sayHello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+        <span class="token keyword">return</span> <span class="token string">"hello world !"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre> 
+<ul><li>启动项目，测试请求</li></ul> 
+<p>浏览器打开localhost:8080/demo/sayHello</p> 
+<p>可以打印出<code>hello world</code></p> 
+<h3><a name="t3"></a><a name="t3"></a><a id="13__39"></a>1.3 跨域测试</h3> 
+<blockquote> 
+ <p>以<code>Chrome</code>为例：</p> 
+</blockquote> 
+<ul><li> <p>打开任意网站，如：<a href="https://blog.csdn.net/weixin_42036952/article/details/88564647">https://blog.csdn.net</a></p> </li><li> <p>按<code>F12</code>，打开【开发者工具】，在里面的【Console】可以直接输入<code>js</code>代码测试；</p> </li></ul> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">var</span> token<span class="token operator">=</span> <span class="token string">"LtSFVqKxvpS1nPARxS2lpUs2Q2IpGstidMrS8zMhNV3rT7RKnhLN6d2FFirkVEzVIeexgEHgI/PtnynGqjZlyGkJa4+zYIXxtDMoK/N+AB6wtsskYXereH3AR8kWErwIRvx+UOFveH3dgmdw1347SYjbL/ilGKX5xkoZCbfb1f0=,LZkg22zbNsUoHAgAUapeBn541X5OHUK7rLVNHsHWDM/BA4DCIP1f/3Bnu4GAElQU6cds/0fg9Li5cSPHe8pyhr1Ii/TNcUYxqHMf9bHyD6ugwOFTfvlmtp6RDopVrpG24RSjJbWy2kUOOjjk5uv6FUTmbrSTVoBEzAXYKZMM2m4=,R4QeD2psvrTr8tkBTjnnfUBw+YR4di+GToGjWYeR7qZk9hldUVLlZUsEEPWjtBpz+UURVmplIn5WM9Ge29ft5aS4oKDdPlIH8kWNIs9Y3r9TgH3MnSUTGrgayaNniY9Ji5wNZiZ9cE2CFzlxoyuZxOcSVfOxUw70ty0ukLVM/78="</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> xhr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'http://127.0.0.1:8080/demo/sayHello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">"x-access-token"</span><span class="token punctuation">,</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">var</span> xhr <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre> 
+<ul><li>输入完后直接按回车键就可以返回结果:</li></ul> 
+<pre class="prettyprint"><code class="prism language-javascript has-numbering" onclick="mdcp.signin(event)" style="position: unset;">Access to XMLHttpRequest at <span class="token string">'http://127.0.0.1:8080/demo/sayHello'</span> 
+<span class="token keyword">from</span> origin <span class="token string">'https://blog.csdn.net'</span> has been blocked by <span class="token constant">CORS</span> policy<span class="token punctuation">:</span> 
+No <span class="token string">'Access-Control-Allow-Origin'</span> header is present on the requested resource<span class="token punctuation">.</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li></ul></pre> 
+<p>该结果表明：该请求在<code>https://blog.csdn.net</code>域名下请求失败！</p> 
+<h2><a name="t4"></a><a name="t4"></a><a id="_69"></a>二、解决方案</h2> 
+<h3><a name="t5"></a><a name="t5"></a><a id="21_Cors_71"></a>2.1 <code>Cors</code>是什么</h3> 
+<blockquote> 
+ <p><code>CORS</code>全称为<code>Cross Origin Resource Sharing</code>（跨域资源共享）, 每一个页面需要返回一个名为<code>Access-Control-Allow-Origin</code>的http头来允许外域的站点访问，你可以仅仅暴露有限的资源和有限的外域站点访问。</p> 
+</blockquote> 
+<p>我们可以理解为：如果一个请求需要允许跨域访问，则需要在<code>http</code>头中设置<code>Access-Control-Allow-Origin</code>来决定需要允许哪些站点来访问。如假设需要允许<a href="https://www.dustyblog.cn/">https://www.dustyblog.c</a>这个站点的请求跨域，则可以设置：</p> 
+<p><code>Access-Control-Allow-Origin:https://www.dustyblog.cn。</code></p> 
+<h3><a name="t6"></a><a name="t6"></a><a id="22_CrossOrigin_79"></a>2.2 方案一：使用<code>@CrossOrigin</code>注解</h3> 
+<h4><a id="221_ControllerCrossOrigin_81"></a>2.2.1 在<code>Controller</code>上使用<code>@CrossOrigin</code>注解</h4> 
+<blockquote> 
+ <p>该类下的所有接口都可以通过跨域访问</p> 
+</blockquote> 
+<pre class="prettyprint"><code class="prism language-java has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/demo2"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token comment">//@CrossOrigin //所有域名均可访问该类下所有接口</span>
+<span class="token annotation punctuation">@CrossOrigin</span><span class="token punctuation">(</span><span class="token string">"https://blog.csdn.net"</span><span class="token punctuation">)</span> <span class="token comment">// 只有指定域名可以访问该类下所有接口</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CorsTest2Controller</span> <span class="token punctuation">{<!-- --></span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/sayHello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+        <span class="token keyword">return</span> <span class="token string">"hello world --- 2"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li></ul></pre> 
+<p>这里指定当前的<code>CorsTest2Controller</code>中所有的方法可以处理<code>https://csdn.net</code>域上的请求,这里可以测试一下：</p> 
+<ul><li>在<a href="https://blog.csdn.net/weixin_42036952/article/details/88564647">https://blog.csdn.net</a>页面打开调试窗口，输入(注意：这里请求地址是<code>/demo2</code>，请区别于<code>1.2</code> 案例中的<code>/demo</code>)</li></ul> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">var</span> token<span class="token operator">=</span> <span class="token string">"LtSFVqKxvpS1nPARxS2lpUs2Q2IpGstidMrS8zMhNV3rT7RKnhLN6d2FFirkVEzVIeexgEHgI/PtnynGqjZlyGkJa4+zYIXxtDMoK/N+AB6wtsskYXereH3AR8kWErwIRvx+UOFveH3dgmdw1347SYjbL/ilGKX5xkoZCbfb1f0=,LZkg22zbNsUoHAgAUapeBn541X5OHUK7rLVNHsHWDM/BA4DCIP1f/3Bnu4GAElQU6cds/0fg9Li5cSPHe8pyhr1Ii/TNcUYxqHMf9bHyD6ugwOFTfvlmtp6RDopVrpG24RSjJbWy2kUOOjjk5uv6FUTmbrSTVoBEzAXYKZMM2m4=,R4QeD2psvrTr8tkBTjnnfUBw+YR4di+GToGjWYeR7qZk9hldUVLlZUsEEPWjtBpz+UURVmplIn5WM9Ge29ft5aS4oKDdPlIH8kWNIs9Y3r9TgH3MnSUTGrgayaNniY9Ji5wNZiZ9cE2CFzlxoyuZxOcSVfOxUw70ty0ukLVM/78="</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> xhr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'http://127.0.0.1:8080/demo2/sayHello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">"x-access-token"</span><span class="token punctuation">,</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">var</span> xhr <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre> 
+<p>返回结果：</p> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token function">ƒ</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">var</span> xhr <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token constant">VM156</span><span class="token punctuation">:</span><span class="token number">8</span> hello world <span class="token operator">--</span><span class="token operator">-</span> <span class="token number">2</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li></ul></pre> 
+<p>说明跨域成功！</p> 
+<ul><li>换个域名测试一下看跨域是否还有效，在<a href="https://www.baidu.com/">https://www.baidu.com</a>按照上述方法测试一下，返回结果：</li></ul> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token constant">OPTIONS</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8080</span><span class="token operator">/</span>demo2<span class="token operator">/</span>sayHello <span class="token number">403</span>
+<span class="token punctuation">(</span>anonymous<span class="token punctuation">)</span>
+Access to XMLHttpRequest at <span class="token string">'http://127.0.0.1:8080/demo2/sayHello'</span> 
+<span class="token keyword">from</span> origin <span class="token string">'http://www.cnblogs.com'</span> has been blocked by <span class="token constant">CORS</span> policy<span class="token punctuation">:</span> 
+Response to preflight request doesn't pass access control check<span class="token punctuation">:</span> 
+No <span class="token string">'Access-Control-Allow-Origin'</span> header is present on the requested resource<span class="token punctuation">.</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li></ul></pre> 
+<p>说明跨域失败！证明该方案成功指定了部分域名能跨域！</p> 
+<h3><a name="t7"></a><a name="t7"></a><a id="23_CORSWebMvcConfigurer_141"></a>2.3 方案二：<code>CORS</code>全局配置-实现<code>WebMvcConfigurer</code></h3> 
+<ul><li>新建跨域配置类：<code>CorsConfig.java</code>:</li></ul> 
+<pre class="prettyprint"><code class="prism language-java has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token comment">/**
+ * 跨域配置
+ */</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CorsConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token punctuation">{<!-- --></span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> WebMvcConfigurer <span class="token function">corsConfigurer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{<!-- --></span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WebMvcConfigurer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addCorsMappings</span><span class="token punctuation">(</span>CorsRegistry registry<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+                registry<span class="token punctuation">.</span><span class="token function">addMapping</span><span class="token punctuation">(</span><span class="token string">"/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+                        <span class="token function">allowedOrigins</span><span class="token punctuation">(</span><span class="token string">"https://www.dustyblog.cn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span> <span class="token comment">//允许跨域的域名，可以用*表示允许任何域名使用</span>
+                        <span class="token function">allowedMethods</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">.</span> <span class="token operator">/</span><span class="token operator">/</span>允许任何方法（post、get等）
+		                <span class="token function">allowedHeaders</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">.</span> <span class="token operator">/</span><span class="token operator">/</span>允许任何请求头
+                        <span class="token function">allowCredentials</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span> <span class="token operator">/</span><span class="token operator">/</span>带上cookie信息
+                        <span class="token function">exposedHeaders</span><span class="token punctuation">(</span>HttpHeaders<span class="token punctuation">.</span>SET_COOKIE<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">maxAge</span><span class="token punctuation">(</span><span class="token number">3600</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">/</span><span class="token function">maxAge</span><span class="token punctuation">(</span><span class="token number">3600</span><span class="token punctuation">)</span>表明在<span class="token number">3600</span>秒内，不需要再发送预检验请求，可以缓存该结果
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li></ul></pre> 
+<ul><li>测试，在允许访问的域名<a href="https://www.dustyblog.cn/">https://www.dustyblog.cn/</a>控制台输入(注意，这里请求的是<code>http://127.0.0.1:8080/demo3</code>)：</li></ul> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">var</span> token<span class="token operator">=</span> <span class="token string">"LtSFVqKxvpS1nPARxS2lpUs2Q2IpGstidMrS8zMhNV3rT7RKnhLN6d2FFirkVEzVIeexgEHgI/PtnynGqjZlyGkJa4+zYIXxtDMoK/N+AB6wtsskYXereH3AR8kWErwIRvx+UOFveH3dgmdw1347SYjbL/ilGKX5xkoZCbfb1f0=,LZkg22zbNsUoHAgAUapeBn541X5OHUK7rLVNHsHWDM/BA4DCIP1f/3Bnu4GAElQU6cds/0fg9Li5cSPHe8pyhr1Ii/TNcUYxqHMf9bHyD6ugwOFTfvlmtp6RDopVrpG24RSjJbWy2kUOOjjk5uv6FUTmbrSTVoBEzAXYKZMM2m4=,R4QeD2psvrTr8tkBTjnnfUBw+YR4di+GToGjWYeR7qZk9hldUVLlZUsEEPWjtBpz+UURVmplIn5WM9Ge29ft5aS4oKDdPlIH8kWNIs9Y3r9TgH3MnSUTGrgayaNniY9Ji5wNZiZ9cE2CFzlxoyuZxOcSVfOxUw70ty0ukLVM/78="</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> xhr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'http://127.0.0.1:8080/demo3/sayHello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">"x-access-token"</span><span class="token punctuation">,</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">var</span> xhr <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre> 
+<p>输出结果</p> 
+<pre class="prettyprint"><code class="prism language-js has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token function">ƒ</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">var</span> xhr <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token constant">VM433</span><span class="token punctuation">:</span><span class="token number">8</span> hello world <span class="token operator">--</span><span class="token operator">-</span> <span class="token number">3</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li></ul></pre> 
+<p>说明跨域成功，换个网址如<a href="https://www.baidu.com/">https://www.baidu.com</a>测试依旧出现需要跨域的错误提示，证明该配置正确，该方案测试通过。</p> 
+<h3><a name="t8"></a><a name="t8"></a><a id="23__196"></a>2.3 拦截器实现</h3> 
+<p>通过实现<code>Fiter</code>接口在请求中添加一些<code>Header</code>来解决跨域的问题</p> 
+<pre class="prettyprint"><code class="prism language-java has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CorsFilter</span> <span class="token keyword">implements</span> <span class="token class-name">Filter</span> <span class="token punctuation">{<!-- --></span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doFilter</span><span class="token punctuation">(</span>ServletRequest request<span class="token punctuation">,</span> ServletResponse response<span class="token punctuation">,</span> FilterChain chain<span class="token punctuation">)</span>
+            <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> ServletException <span class="token punctuation">{<!-- --></span>
+        HttpServletResponse res <span class="token operator">=</span> <span class="token punctuation">(</span>HttpServletResponse<span class="token punctuation">)</span> response<span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Credentials"</span><span class="token punctuation">,</span> <span class="token string">"true"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Origin"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Methods"</span><span class="token punctuation">,</span> <span class="token string">"GET, POST, DELETE, PUT"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Headers"</span><span class="token punctuation">,</span> <span class="token string">"Content-Type,X-CAF-Authorization-Token,sessionToken,X-TOKEN"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>HttpServletRequest<span class="token punctuation">)</span> request<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"OPTIONS"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+            response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ok"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        chain<span class="token punctuation">.</span><span class="token function">doFilter</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span>FilterConfig filterConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException <span class="token punctuation">{<!-- --></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin" data-title="登录后复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4259&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li></ul></pre> 
+<h2><a name="t9"></a><a name="t9"></a><a id="_227"></a>三、源码地址</h2> 
+<p><a href="https://github.com/vanDusty/SpringBoot-Home/tree/master/springboot-demo-list/cross-domain%20">Github 示例代码</a></p> 
+<h3><a name="t10"></a><a name="t10"></a><a id="31__231"></a>3.1 日常求赞</h3> 
+<blockquote> 
+ <p>博主祖传秘籍 <a href="https://blog.csdn.net/weixin_42036952/category_9294464.html">Spring Boot 葵花宝典</a> 开源中，欢迎前来吐槽，提供线索，告诉博主接下来更新哪方面文章，共同进步！<br> 更多 <code>Java</code> 笔记，详见<a href="https://github.com/vanDusty/Java-Note">【Java 知识笔记本】</a>，欢迎提供想法建议。</p> 
+</blockquote> 
+<h3><a name="t11"></a><a name="t11"></a><a id="32__235"></a>3.2 文化交流</h3> 
+<ol><li><a href="https://www.dusty.vip/">风尘博客</a></li><li><a href="https://juejin.im/user/5d5ea68e6fb9a06afa328f56/posts">风尘博客-掘金</a></li><li><a href="https://www.cnblogs.com/vandusty/">风尘博客-博客园</a></li><li><a href="https://me.csdn.net/weixin_42036952">风尘博客-CSDN</a></li><li><a href="https://github.com/vanDusty">Github</a></li></ol> 
+<p>最新文章，欢迎关注：公众号-风尘博客；交流观点，欢迎添加：个人微信</p> 
+<p><img src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/20200424000639515.png" alt="风尘博客"><img src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/20200424000638960.png" alt="个人微信号"></p>
+                </div><div><div></div></div>
+                <link href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/markdown_views-10218d227c.css" rel="stylesheet">
+                <link href="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/style-57471a2b6e.css" rel="stylesheet">
+        </div>
+    </article>
+</div>
+
+
+
+
+
+
+            
+
+            
+            <div class="template-box">
+                <span>©️2020 CSDN</span>
+                <span>皮肤主题: 像素格子</span>
+                <span> 设计师:CSDN官方博客</span>
+                <span>
+                    <a href="https://blog.csdn.net/" class="back-home c-blue c-blue-hover c-blue-focus">返回首页</a>
+                </span>
+            </div>
+            <script src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/publib_footer-1.0.4.js.下载" data-isfootertrack="false" type="text/javascript"></script><div><div class="bottom-pub-footer footer-box pub_fo"><div class="pub-footer-new">    <div id="pub-footerall">        <div class="contact-info">          <a class="right-dotte spec_a" href="https://www.csdn.net/company/index.html#about" target="_blank">关于我们</a>          <a href="https://www.csdn.net/company/index.html#recruit" target="_blank" class="right-dotte spec_a">招聘</a>          <a href="https://www.csdn.net/company/index.html#advertisement" target="_blank" class="right-dotte spec_a">广告服务</a>          <a href="https://www.csdn.net/gather/A" target="_blank" class="footer_baidu right-dotte spec_a">网站地图</a>          <em>          <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M2.167 2h11.666C14.478 2 15 2.576 15 3.286v9.428c0 .71-.522 1.286-1.167 1.286H2.167C1.522 14 1 13.424 1 12.714V3.286C1 2.576 1.522 2 2.167 2zm-.164 3v1L8 10l6-4V5L8 9 2.003 5z" fill="#999AAA" fill-rule="evenodd"></path></svg>          <a href="mailto:webmaster@csdn.net" target="_blank"><span class="txt right-dotte">kefu@csdn.net</span></a><svg t="1538012951761" width="17" height="17" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23083" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M466.4934485 880.02006511C264.6019863 859.18313878 107.13744214 688.54706608 107.13744214 481.14947309 107.13744214 259.68965394 286.68049114 80.14660493 508.14031029 80.14660493s401.00286817 179.54304901 401.00286814 401.00286816v1.67343191C908.30646249 737.58941724 715.26799489 943.85339507 477.28978337 943.85339507c-31.71423369 0-62.61874229-3.67075386-92.38963569-10.60739903 30.09478346-11.01226158 56.84270313-29.63593923 81.5933008-53.22593095z m-205.13036267-398.87059202a246.77722444 246.77722444 0 0 0 493.5544489 0 30.85052691 30.85052691 0 0 0-61.70105383 0 185.07617062 185.07617062 0 0 1-370.15234125 0 30.85052691 30.85052691 0 0 0-61.70105382 0z" p-id="23084" fill="#999AAA"></path></svg>          <a href="http://bbs.csdn.net/forums/Service" target="_blank"><span class="right-dotte">客服论坛</span></a><svg t="1538013874294" width="17" height="17" style="" viewBox="0 0 1194 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23784" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M1031.29689505 943.85339507h-863.70679012A71.98456279 71.98456279 0 0 1 95.60554212 871.86883228v-150.85178906c0-28.58329658 16.92325492-54.46750945 43.13135785-65.93861527l227.99160176-99.75813425c10.55341735-4.61543317 18.24580594-14.0082445 20.72896295-25.23643277l23.21211998-105.53417343a71.95757195 71.95757195 0 0 1 70.28414006-56.51881307h236.95255971c33.79252817 0 63.02360485 23.5090192 70.28414004 56.51881307l23.21211997 105.53417343c2.48315701 11.25517912 10.17554562 20.62099961 20.72896296 25.23643277l227.99160177 99.75813425a71.98456279 71.98456279 0 0 1 43.13135783 65.93861527v150.85178906A71.98456279 71.98456279 0 0 1 1031.26990421 943.85339507z m-431.85339506-143.94213475c143.94213474 0 143.94213474-48.34058941 143.94213474-107.96334876s-64.45411922-107.96334877-143.94213474-107.96334877c-79.51500637 0-143.94213474 48.34058941-143.94213475 107.96334877s0 107.96334877 143.94213475 107.96334876zM1103.254467 296.07330247v148.9894213a35.97878598 35.97878598 0 0 1-44.15700966 35.03410667l-143.94213473-33.57660146a36.0057768 36.0057768 0 0 1-27.80056231-35.03410668V296.1002933c-35.97878598-47.98970852-131.95820302-71.98456279-287.91126031-71.98456279S347.53801649 248.11058478 311.53223967 296.1002933v115.385829c0 16.73431906-11.52508749 31.25538946-27.80056233 35.03410668l-143.94213473 33.57660146A35.97878598 35.97878598 0 0 1 95.63253297 445.06272377V296.07330247C162.81272673 152.13116772 330.77670658 80.14660493 599.47049084 80.14660493s436.63077325 71.98456279 503.81096699 215.92669754z" p-id="23785" fill="#999AAA"></path></svg>          <span class="txt right-dotte">400-660-0108</span>          <svg t="1538013544186" width="17" height="17" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23556" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M902.60033922 650.96445566c-18.0718526-100.84369837-94.08399771-166.87723736-94.08399771-166.87723737 10.87530062-91.53186599-28.94715402-107.78733693-28.94715401-107.78733691C771.20003413 93.08221664 517.34798062 98.02553561 511.98620441 98.16348824 506.65661791 98.02553561 252.75857992 93.08221664 244.43541101 376.29988138c0 0-39.79946279 16.25547094-28.947154 107.78733691 0 0-75.98915247 66.03353901-94.0839977 166.87723737 0 0-9.63372291 170.35365477 86.84146124 20.85850523 0 0 21.70461757 56.79068296 61.50407954 107.78733692 0 0-71.1607951 23.19910867-65.11385185 83.46161052 0 0-2.43717093 67.16015592 151.93232126 62.56172014 0 0 108.5460788-8.0932473 141.10300432-52.14626271H526.33792324c32.57991817 44.05301539 141.10300431 52.1462627 141.10300431 52.14626271 154.3235077 4.59843579 151.95071457-62.56172013 151.95071457-62.56172014 6.00095876-60.26250183-65.11385185-83.46161053-65.11385185-83.46161052 39.77647014-50.99665395 61.4810877-107.78733693 61.4810877-107.78733692 96.45219231 149.49514952 86.84146124-20.85850523 86.84146125-20.85850523" p-id="23557" fill="#999AAA"></path></svg><a href="https://url.cn/5epoHIm?_type=wpa&amp;qidian=true" class="qqcustomer_s" target="_blank"><span class="txt">QQ客服（8:30-22:00）</span></a>          </em>        </div>        <div class="allow-info">          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030143" rel="noreferrer" target="_blank">公安备案号 11010502030143</a>          <a href="http://beian.miit.gov.cn/publish/query/indexFirst.action" rel="noreferrer" target="_blank">京ICP备19004658号</a>          <a href="https://csdnimg.cn/release/live_fe/culture_license.png" rel="noreferrer" target="_blank">京网文〔2020〕1039-165号</a>          <a href="https://www.csdn.net/company/index.html#statement" target="_blank">版权与免责声明</a>          <a href="https://blog.csdn.net/blogdevteam/article/details/90369522" target="_blank">版权申诉</a>          <a href="http://www.cyberpolice.cn/" target="_blank">网络110报警服务</a>        </div>        <div class="allow-info">          <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a>          <a href="https://download.csdn.net/index.php/tutelage/" target="_blank">家长监护</a>          <a href="https://blog.csdn.net/blogdevteam/article/details/90369522" target="_blank">版权申诉</a>          <a href="http://www.bjjubao.org/" target="_blank">北京互联网违法和不良信息举报中心</a>          <a>©1999-2020 北京创新乐知网络技术有限公司</a>        </div>        <div class="bg-gray" style="display:none;">            <div class="feed_copyright">            <p class="fz12_baidu"><img style="display:none;vertical-align: middle;height:20px;margin-right:5px" src="./Spring Boot 系列：处理跨域请求_风尘博客-CSDN博客_files/gongan.png"><a style="margin-right:16px;" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030143" rel="noreferrer" target="_blank" class="ml14">公安备案号 11010502030143</a> <a href="http://beian.miit.gov.cn/publish/query/indexFirst.action" rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京ICP备19004658号</a><a href="https://csdnimg.cn/release/live_fe/culture_license.png" rel="noreferrer" target="_blank" class="ml14" style="margin-right:16px;">京网文〔2020〕1039-165号</a><a style="margin-right:16px;" href="https://csdnimg.cn/cdn/content-toolbar/csdn-ICP.png" target="_blank">   经营性网站备案信息</a><span class="fz12_baidu">©1999-2020 北京创新乐知网络技术有限公司 </span></p>            </div>        </div>        <div class="allow-info-box" style="display:none;">        <a href="https://www.csdn.net/company/index.html#statement" target="_blank"><span>版权与免责声明</span></a>        <a href="https://blog.csdn.net/blogdevteam/article/details/90369522" target="_blank"><span>版权申诉</span></a>        <a href="https://download.csdn.net/index.php/tutelage/" target="_blank"><span>家长监护</span></a>        <a href="http://www.cyberpolice.cn/" target="_blank"><span>网络110报警服务</span></a>        <a href="http://www.12377.cn/" target="_blank"><span>中国互联网举报中心</span></a>        <a href="http://www.bjjubao.org/" target="_blank"><span>北京互联网违法和不良信息举报中心</span></a>        </div>    </div></div></div></div>
+        </main>
+
+
+
+    </div>
+<div class="recommend-right  align-items-stretch clearfix" id="rightAside" data-type="recommend">
+    <aside class="recommend-right_aside">
+        <div id="recommend-right">
+            <div class="flex-column aside-box groupfile" id="groupfile" style="display: block; max-height: 510px;">
+                <div class="groupfile-div" style="max-height: 510px;">
+                <h3 class="aside-title">目录</h3>
+                <div class="align-items-stretch group_item">
+                    <div class="pos-box">
+                        <div class="scroll-box">
+                            <div class="toc-box"><ol><li class="active"><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t0">一、跨域背景</a></li><li class="sub-box"><ol><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t1">1.1 何为跨域？</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t2">1.2 一次正常的请求</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t3">1.3 跨域测试</a></li></ol></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t4">二、解决方案</a></li><li class="sub-box"><ol><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t5">2.1 Cors是什么</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t6">2.2 方案一：使用@CrossOrigin注解</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t7">2.3 方案二：CORS全局配置-实现WebMvcConfigurer</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t8">2.3 拦截器实现</a></li></ol></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t9">三、源码地址</a></li><li class="sub-box"><ol><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t10">3.1 日常求赞</a></li><li class=""><a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#t11">3.2 文化交流</a></li></ol></li></ol></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                            
+            
+        </div>
+    </aside>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ </body></html>

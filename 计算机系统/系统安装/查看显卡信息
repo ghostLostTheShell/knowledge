@@ -1,0 +1,10 @@
+ lspci -nn | egrep -i "3d|display|vga"
+
+  lspci | grep -i vga
+
+
+  nvidia-settings 
+
+
+## 显卡切换
+  prime-select nvidia

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <canvas id="demo"></canvas>
+
+    <div>
+      <canvas id="demo2"></canvas>
+    </div>
+
+
+    <div>
+      <canvas id="demo3"></canvas>
+    </div>
+    <script>
+      // 画布初始化
+      let canvas = document.getElementById('demo')
+      let  ctx= canvas.getContext('2d')
+
+      var raf;
+      var running = false;
+      
+      var ball = {
+        x: 100,
+        y: 100,
+        vx: 5,
+        vy: 1,
+        radius: 25,
+        color: 'blue',
+        draw: function() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.closePath();
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      };
+      
+      function clear() {
+        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+      }
+      
+      function draw() {
+        clear();
+        ball.draw();
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+      
+        if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+          ball.vy = -ball.vy;
+        }
+        if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+          ball.vx = -ball.vx;
+        }
+      
+        raf = window.requestAnimationFrame(draw);
+      }
+      
+      canvas.addEventListener('mousemove', function(e){
+        if (!running) {
+          clear();
+          ball.x = e.offsetX;
+          ball.y = e.offsetY;
+          ball.draw();
+        }
+      });
+      
+      canvas.addEventListener('click',function(e){
+        if (!running) {
+          raf = window.requestAnimationFrame(draw);
+          running = true;
+        }
+      });
+      
+      canvas.addEventListener('mouseout', function(e){
+        window.cancelAnimationFrame(raf);
+        running = false;
+      });
+      
+      ball.draw();
+
+    </script>
+  </body>
+
+  <script>
+    function drawing_demo2(){
+
+      let c = document.getElementById('demo2'),
+      process = 0,
+      ctx = c.getContext('2d');
+
+      function animate(){
+				requestAnimationFrame(function (){
+					process = process + 1;
+					drawCricle(ctx, process);
+					if (process < 75) {
+						animate();
+					}
+				});
+			}
+
+      function drawCricle(ctx, percent){
+				// 画进度环
+				ctx.beginPath();
+				ctx.moveTo(100, 100);
+				ctx.arc(100, 100, 80, Math.PI * 1.5, Math.PI * (1.5 + 2 * percent / 100 ));
+				ctx.closePath();
+				ctx.fillStyle = '#108EE9';
+				ctx.fill();
+ 
+      // 画第一层灰色的圆
+      
+			ctx.beginPath();
+			ctx.arc(100, 100, 70, 0, Math.PI*2);
+			// ctx.closePath();
+			ctx.fillStyle  = '#ededed';
+			ctx.fill();
+			// 画第二层白色的圆
+			ctx.beginPath();
+			ctx.arc(100, 100, 65, 0, Math.PI*2);
+			// ctx.closePath();
+			ctx.fillStyle  = '#fcfcfc';
+			ctx.fill();
+ 
+				// 画内填充圆
+				ctx.beginPath();
+				ctx.arc(100, 100, 55, 0, Math.PI * 2);
+				ctx.closePath();
+				ctx.fillStyle = '#FAFCFC';
+				ctx.fill();
+ 
+			// 画灰色的框
+			ctx.beginPath();
+			ctx.arc(100, 100, 55, 0, Math.PI*2);
+			// ctx.closePath();
+			ctx.strokeStyle  = '#f2f2f2';
+			ctx.stroke();
+ 
+				// 填充文字
+				ctx.font = "bold 20pt Microsoft YaHei";
+				ctx.fillStyle = '#DA4816';
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				ctx.moveTo(100, 100);
+				ctx.fillText(process + '%', 100, 80);
+ 
+				ctx.fillStyle = '#aaa';
+				ctx.font="10px Georgia";
+				ctx.fillText("销售目标完成度",100,100);
+ 
+				// ctx.font="10px Georgia";
+				ctx.fillText("集团内排名",100,120);
+ 
+				ctx.fillStyle = '#DA4816';
+				ctx.font="10px Georgia";
+        ctx.fillText("1",100,140);
+        
+			}
+ 
+			animate();
+
+    }
+
+    drawing_demo2()
+  </script>
+
+  <script>
+    function drawing_demo3(){
+      let canvas = document.getElementById('demo3')
+      let  ctx= canvas.getContext('2d')
+
+      canvas.width = 500
+      canvas.height = 500
+
+      let r = 500 / 2
+      ctx.translate(r,r) 
+
+      ctx.lineWidth = 8;
+
+      ctx.beginPath()
+
+      var arcColor = ctx.createLinearGradient(-170, -170, 0, 170)
+
+      arcColor.addColorStop(0, '#8ec1ff')
+      arcColor.addColorStop(0.2, '#83beff')
+      arcColor.addColorStop(0.5, '#75b1ff')
+      arcColor.addColorStop(0.7,'#5998ff')
+      arcColor.addColorStop(1, '#2065ff')
+
+      ctx.strokeStyle= arcColor;//设置画笔的颜色
+      ctx.arc(0,0,r - 80,0,2*Math.PI,false)  //绘制圆形，坐标0,0,半径250-80，整圆（0-360度），false表示顺时针
+      ctx.closePath()
+      ctx.stroke() //绘图
+    }
+
+
+    drawing_demo3()
+  </script>
+</html>

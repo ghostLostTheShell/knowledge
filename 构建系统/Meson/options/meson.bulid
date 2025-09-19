@@ -1,0 +1,6 @@
+project('看看常用的options',
+    version: '0.0.1',
+    meson_version: '>= 0.49.0'
+)
+
+messag(get_option("prefix"))

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      #wrapper{
+        width:  170px;
+        height: 500px;
+        background-color: pink;
+        /*
+          设置：
+          display: flex
+        */
+        display: flex; 
+        flex-direction:row; 
+        /* 设置方向值有：
+          row 
+          row-reverse
+          column
+          column-reverse
+        */
+        flex-wrap:wrap;
+        /* 设置是否换行及换行方式， 值有：
+          nowrap  
+          wrap
+          wrap-reverse
+        */
+        /*
+        flex-flow: row nowrap;
+        flex-flow属性是flex-direction属性和flex-wrap属性的简写形式
+        */
+
+      }
+      #content{
+        width:50px;
+        height:50px;
+        background-color: black;
+        color: white;
+      }
+      #content1{
+        width: 50px;
+        height:50px;
+        background-color: red;
+      }
+      #content2{
+        width:50px;
+        height:50px;
+        background-color: white;
+ 
+      }
+      #content3{
+        width:50px;
+        height:50px;
+        background-color: #ccc;
+      }
+     
+   </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="content">c</div>
+      <div id="content1">1</div>
+      <div id="content2">2</div>
+      <div id="content3">3</div>
+      
+    </div>
+  </body>
+</html>

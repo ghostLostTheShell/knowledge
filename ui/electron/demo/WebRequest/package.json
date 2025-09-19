@@ -1,0 +1,17 @@
+{
+  "name": "web_request_demo",
+  "version": "1.0.0",
+  "description": "对网络请求拦截或修改其内容",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "debug": "electron . --inspect-brk=5858"
+  },
+  "keywords": [],
+  "author": "陈俊杰",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.0.1"
+  }
+}

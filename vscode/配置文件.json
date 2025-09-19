@@ -1,0 +1,11 @@
+{
+  "editor.fontSize": 16, // 字符大小
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "java.configuration.maven.userSettings": "D:\\apache-maven-3.6.3\\conf\\settings.xml",
+  "git.path": "‪D:\\Program Files\\Git\bin",
+  "maven.executable.path": "D:\\apache-maven-3.6.3\\bin\\mvn.cmd",
+  "git.ignoreWindowsGit27Warning": true,
+  "java.home": "D:\\jdk\\open-jdk-14.0.1"
+}

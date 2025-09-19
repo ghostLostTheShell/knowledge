@@ -1,0 +1,55 @@
+{
+	"name": "helloworld",
+	"displayName": "什么鬼？？",
+	"description": "垃圾东西",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:helloworld.helloWorld"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "helloworld.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"configuration": {
+			"title": "vscode-plugin-demo",
+			"properties": {
+				"vscodePluginDemo.yourName": {
+					"type": "string",
+					"default": "guest",
+					"description": "你的名字"
+				},
+				"vscodePluginDemo.showTip": {
+					"type": "boolean",
+					"default": true,
+					"description": "是否在每次启动时显示欢迎提示！"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.54.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	}
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    #demo1{
+      background-color: brown;
+    }
+    #demo2{
+      background-color: brown;
+    }
+    #demo3{
+      background-color: brown;
+    }
+  </style>
+</head>
+
+<body>
+  <p>绘制矩形</p>
+  <div >
+    <canvas id="demo1"></canvas>
+  </div>
+
+  <div>
+    <canvas id="demo2"></canvas>
+  </div>
+  <p>画圆</p>
+
+  <div>
+    <canvas id="demo3"></canvas>
+  </div>
+  
+</body>
+
+<script>
+  function draw() {
+    var canvas = document.getElementById('demo1');
+
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+  
+      ctx.fillRect(0, 25, 100, 100);
+      ctx.clearRect(45, 45, 60, 60);
+      ctx.strokeRect(50, 50, 50, 50);
+
+      ctx.strokeRect(125, 125, 50, 50);
+    }
+  }
+
+  draw();
+
+
+  var canvas = document.getElementById('demo2');
+var ctx = canvas.getContext('2d');
+
+// Set display size (css pixels).
+var size = 200;
+canvas.style.width = size + "px";
+canvas.style.height = size + "px";
+
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // <--- Change to 1 on retina screens to see blurry canvas.
+canvas.width = 100//size * scale;
+canvas.height = 100//size * scale;
+
+// Normalize coordinate system to use css pixels.
+ctx.scale(scale, scale);
+
+ctx.fillStyle = "#bada55";
+ctx.fillRect(10, 10, 300, 300);
+ctx.fillStyle = "#ffffff";
+ctx.font = '18px Arial';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+
+var x = size / 2;
+var y = size / 2;
+
+var textString = "I love MDN";
+ctx.fillText(textString, x, y);
+</script>
+<!-- 画圆 -->
+<script>
+
+function demo3(){
+
+  let demo3 = document.getElementById("demo3");
+
+  let ctx3 = demo3.getContext('2d');
+  
+  ctx3.beginPath();
+  ctx3.strokeStyle = 'blue';
+  ctx3.moveTo(20,20);
+  ctx3.lineTo(200,20);
+  //ctx3.stroke();
+  
+  // Second path
+  ctx3.beginPath();
+  ctx3.strokeStyle = 'green';
+  ctx3.moveTo(20,20);
+  ctx3.lineTo(120,120);
+  ctx3.stroke();
+
+}
+
+
+demo3();
+
+</script>
+</html>

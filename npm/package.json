@@ -1,0 +1,10 @@
+{
+    "body": {
+        "main": "定义了 npm 包的入口文件，browser 环境和 node 环境均可使用",
+        "module": "定义 npm 包的 ESM 规范的入口文件，browser 环境和 node 环境均可使用",
+        "browser": "定义 npm 包在 browser 环境下的入口文件",
+        "files": "可选字段，项目包含的一组文件。如果是文件夹，文件夹下的文件也会被包含。
+        如果需要把某些文件不包含在项目中，添加一个”.npmignore”文件。这个文件和”gitignore”类似。",
+        "typings": ""
+    }
+}

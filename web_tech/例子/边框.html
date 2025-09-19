@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .vip-control-header{
+        width: 600px;
+        height: auto;
+        background: #F8F8F8;
+        border: 1px solid #e2e2e2;
+        padding: 10px 0 10px 10px;
+        position: relative;
+        border-radius: 5px;
+    }
+    .vip-control-header:before,.vip-control-header:after{
+        position: absolute;
+        content: " ";
+        top: 16px;
+        left: -16px;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 8px solid #F8F8F8;
+        border-color: transparent #F8F8F8 transparent transparent;
+        z-index: 111;
+    }
+    .vip-control-header:after{
+        left: -17px;
+        border-color: transparent #e2e2e2 transparent transparent;
+        z-index: 11;
+    }
+    </style>
+  </head>
+
+  <body>
+<div class="vip-control-header">
+    <span>页面标题: </span>
+    <input class="headerChange" type="text" onchange="headerChange()"/>
+</div>
+
+  </body>
+</html>
